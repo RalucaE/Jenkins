@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-     PATH = PATH + ";C:\\Windows\\System32"
+     PATH = "${PATH};C:\\Windows\\System32"
  }
     stages {
         stage('Clone'){
