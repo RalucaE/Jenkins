@@ -1,0 +1,41 @@
+<div><h1>Employees CRUD with Angular</h1></div>
+
+<div>
+  <table class="table" style="width: 80%">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Email adress</th>
+      <th>adress</th>
+      <th>role</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let employee of employees">
+      <td>
+        {{employee.firstName}}
+      </td>
+      <td>
+        {{employee.lastName}}
+      </td>
+      <td>
+        {{employee.age}}
+      </td>
+      <td>
+        {{employee.emailAdress}}
+      </td>
+      <td>
+        {{employee.adress}}
+      </td>
+      <td>
+        {{employee.role}}
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <p>
+    <button (click)="addEmployee()"> Add Employee</button>
+  </p>
+</div>
+<router-outlet></router-outlet>
