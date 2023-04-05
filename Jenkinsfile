@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {                                    
-              bat '''
+              powershell '''
              cd spring/
              docker build -t spring-image .            
              docker build -t postgres-image .
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub-creds') {
-                        bat 'docker-compose up -d'
+                        powershell 'docker-compose up -d'
                     }
                 }
             }
