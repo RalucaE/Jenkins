@@ -7,11 +7,7 @@ pipeline {
             }
         }
         stage('Build') {
-            steps {   
-                environment{
-                    env.PATH = env.PATH + ";c:\\Windows\\System32"
-                }        
-            
+            steps {                                    
               bat '''
              cd spring/
              docker build -t spring-image .            
