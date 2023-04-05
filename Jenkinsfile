@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+     env.PATH = env.PATH + ";c:\\Windows\\System32"
+ }
     stages {
         stage('Clone'){
             steps{
@@ -8,7 +11,7 @@ pipeline {
         }
         stage('Build') {
             steps {                                    
-              powershell '''
+              bat '''
              cd spring/
              docker build -t spring-image .            
              docker build -t postgres-image .
@@ -23,7 +26,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub-creds') {
-                        powershell 'docker-compose up -d'
+                        bat 'docker-compose up -d'
                     }
                 }
             }
